@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+
 def no_c(my_string):
-    cnull = ""
-    for ind in range(len(my_string)):
-        if (my_string[ind] != 'c' and my_string[ind] != 'C'):
-            cnull += my_string[ind]
-    return cnull
+    new_str = ''
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            new_str += char
+    return (new_str)
