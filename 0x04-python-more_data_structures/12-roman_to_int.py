@@ -1,29 +1,60 @@
 #!/usr/bin/python3
+
+def value(roman):
+    """returns value of each Roman symbol
+    """
+    if roman == 'I':
+        return 1
+    if roman == 'V':
+        return 5
+    if roman == 'X':
+        return 10
+    if roman == 'L':
+        return 50
+    if roman == 'C':
+        return 100
+    if roman == 'D':
+        return 500
+    if roman == 'M':
+        return 1000
+    return 0
+
+
 def roman_to_int(roman_string):
-    """Converts a roman numeral to an integer."""
-    if (not isinstance(roman_string, str) or
-            roman_string is None):
-        return (0)
+    """converts a Roman numeral to an integer
+    You can assume the number will be between 1 to 3999.
+    def roman_to_int(roman_string) must return an integer
+    If the roman_string is not a string or None, return 0
+    """
+    if not roman_string:
+        return 0
 
-    roman_dict = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000
-    }
-    num = 0
+    if not isinstance(roman_string, str):
+        return 0
 
-    for i in range(len(roman_string)):
-        if roman_dict.get(roman_string[i], 0) == 0:
-            return (0)
+    result = 0
+    i = 0
 
-        if (i != (len(roman_string) - 1) and
-                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
-                num += roman_dict[roman_string[i]] * -1
+    while i < len(roman_string):
+        # getting value of symbol roman_string[i]
+        str1 = value(roman_string[i])
 
+        if i + 1 < len(roman_string):
+            # getting value of symbol roman_string[i + 1]
+            str2 = value(roman_string[i + 1])
+
+            # comparing both values
+            if str1 >= str2:
+                # Value of current symbol is greater
+                # or equal to the next symbol
+                result = result + str1
+                i = i + 1
+            else:
+                # Value of current symbol is greater
+                # or equal to the next symbol
+                result = result + str2 - str1
+                i = i + 2
         else:
-            num += roman_dict[roman_string[i]]
-    return (num)
+            result = result + str1
+            i = i + 1
+    return result
