@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 # -----------------------------------------------------------
 # Python program that:
-# demonstrates how to convert a Roman numeral to an integer
-#
-# (C) 2022 Igbinijesu Samuel, Lagos, Nigeria
-# email igbinijesusamuel@gmail.com
+# how to convert a Roman numeral to an integer
 # -----------------------------------------------------------
 
 
